@@ -35,4 +35,5 @@ Now you should be able to load the unpacked extension locally and test. To do th
 
 ## Shipping your version
 You can publish your version as described on [MDN web docs](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Publishing_your_WebExtension)
+
 To create a `.xpi` file, follow the instrucions on https://developer.mozilla.org/en-US/Add-ons/Extension_Packaging (for now). You can find an example `install.rdf`-file in the project folder.
