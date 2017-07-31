@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener(function(request, sender, callback)
+browser.runtime.onMessage.addListener(function(request, sender, callback)
 {
     // Figure width, height, top and left positions
     var unmark_div       = document.createElement('div');

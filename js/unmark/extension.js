@@ -113,7 +113,7 @@ unmark.ext.editMark = function()
 
 unmark.ext.init = function(obj)
 {
-    chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT}, function(tab)
+    browser.tabs.query({'active': true, 'windowId': browser.windows.WINDOW_ID_CURRENT}, function(tab)
     {
         tab = tab[0] || tab;
         if (tab.url.indexOf('http') != 0) {
@@ -189,7 +189,7 @@ unmark.ext.loadOptions = function(obj)
 
 unmark.ext.log = function(what)
 {
-    chrome.extension.getBackgroundPage().console.log(what);
+    browser.extension.getBackgroundPage().console.log(what);
 };
 
 unmark.ext.login = function()

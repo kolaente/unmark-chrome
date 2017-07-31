@@ -30,7 +30,7 @@ unmark.omnibox.success = function(obj)
 };
 
 
-chrome.omnibox.onInputChanged.addListener(function(text, suggest)
+browser.omnibox.onInputChanged.addListener(function(text, suggest)
 {
     unmark.suggest = suggest;
     if (text.length >= 3) {
@@ -39,16 +39,16 @@ chrome.omnibox.onInputChanged.addListener(function(text, suggest)
 
 });
 
-chrome.omnibox.onInputEntered.addListener(function(text)
+browser.omnibox.onInputEntered.addListener(function(text)
 {
-    chrome.tabs.getSelected(null, function(tab)
+    browser.tabs.getSelected(null, function(tab)
     {
         if ((text.indexOf('http') == 0)) {
             // Go to site
-            chrome.tabs.update(tab.id, {'url' : text});
+            browser.tabs.update(tab.id, {'url' : text});
         } else {
             // Search on unmark
-            chrome.tabs.update(tab.id, {'url' : unmark.host + unmark.paths.search + '?q=' + unmark.urlEncode(text)});
+            browser.tabs.update(tab.id, {'url' : unmark.host + unmark.paths.search + '?q=' + unmark.urlEncode(text)});
         }
     });
 });

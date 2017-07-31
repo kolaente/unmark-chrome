@@ -58,12 +58,12 @@ unmark.context.pushMessage = function(type, msg)
 
     var color = (type == 'Error') ? '#ff0000' : '#000000';
     var text  = (type == 'Error') ? 'ERR' : 'OK';
-    chrome.browserAction.setBadgeBackgroundColor({'color': color});
-    chrome.browserAction.setBadgeText({'text': text});
+    browser.browserAction.setBadgeBackgroundColor({'color': color});
+    browser.browserAction.setBadgeText({'text': text});
 
     var timer = setTimeout(function()
     {
-        chrome.browserAction.setBadgeText({'text': ''});
+        browser.browserAction.setBadgeText({'text': ''});
     }, 2500);
 };
 
@@ -82,7 +82,7 @@ unmark.context.save = function(obj)
 
 unmark.context.saveAllTabs = function()
 {
-    chrome.tabs.query({}, function(tabs)
+    browser.tabs.query({}, function(tabs)
     {
         var total_tabs      = tabs.length;
         var total_processed = 0;
@@ -129,11 +129,11 @@ unmark.context.saveAllTabs = function()
 unmark.context.sendMessage = function(tab_id, obj, attempt)
 {
     if (attempt <= 5) {
-        chrome.tabs.sendMessage(tab_id, obj, function(res)
+        browser.tabs.sendMessage(tab_id, obj, function(res)
         {
             attempt += 1;
             unmark.context.sendMessage(tab_id, obj, attempt);
-            //console.log(chrome.runtime.lastError);
+            //console.log(browser.runtime.lastError);
         });
     }
     else {
@@ -180,7 +180,7 @@ Date.prototype.getDateTime = function()
 
 /*
 // Removed for now
-chrome.contextMenus.create(
+browser.contextMenus.create(
 {
     'title'               : 'Save link to unmark',
     'documentUrlPatterns' : ['http://*', 'https://*'],
@@ -189,7 +189,7 @@ chrome.contextMenus.create(
 });
 */
 
-chrome.contextMenus.create(
+browser.contextMenus.create(
 {
     'title'               : 'Save this page to Unmark',
     'documentUrlPatterns' : ['http://*/*', 'https://*/*'],
@@ -197,7 +197,7 @@ chrome.contextMenus.create(
     'onclick'             : unmark.context.chelseaHandler
 });
 
-chrome.contextMenus.create(
+browser.contextMenus.create(
 {
     'title'               : 'Save this page',
     'documentUrlPatterns' : ['http://*/*', 'https://*/*'],
@@ -205,7 +205,7 @@ chrome.contextMenus.create(
     'onclick'             : unmark.context.chelseaHandler
 });
 
-/*chrome.contextMenus.create(
+/*browser.contextMenus.create(
 {
     'title'               : 'Save all tabs',
     'contexts'            : ['page'],
