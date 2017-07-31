@@ -1,8 +1,7 @@
 ## Hey There
-Here is our code for Unmark's Chrome extension. Feel free to use it. Below are a few instructions on how to customize it to work with your domain.
+Here is the code for Unmark's Firefox extension. Feel free to use it. Below are a few instructions on how to customize it to work with your domain.
 
-## Chrome Extensions Tutorial
-Not familiar with how to create Chrome extensions? [Click here to read the documentation](http://developer.chrome.com/extensions/index.html).
+This is a slightly adopted fork of [unmark's Chrome Extension](https://github.com/plainmade/unmark-chrome) to work in Firefox.
 
 ## Using your own host
 If you want to simply change the endpoint for this extension it's pretty simple.
@@ -27,14 +26,13 @@ unmark.host = 'https://unmark.it';
 
 * Save
 
-## Loading your version in Chrome
+## Loading your version in Firefox
 Now you should be able to load the unpacked extension locally and test. To do that simply follow these instructions:
 
-* Go To `chrome://extensions` in Chrome.
-* Check the `Developer Mode` checkbox.
-* Click the button that says `Load unpacked extension...`.
-* Choose the location of your code.
-
+* Go To `about:debugging` in Firefox.
+* Click the button that says `Load Add-on temporary ...`.
+* Choose the location of your `manifest.json`.
 
 ## Shipping your version
-When you are ready to ship, just choose the `Pack extension...` button and follow the instructions.
+You can publish your version as described on [MDN web docs](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Publishing_your_WebExtension)
+To create a `.xpi` file, follow the instrucions on https://developer.mozilla.org/en-US/Add-ons/Extension_Packaging (for now). You can find an example `install.rdf`-file in the project folder.
